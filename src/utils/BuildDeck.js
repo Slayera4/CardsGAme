@@ -9,6 +9,7 @@ const monkey = ['http://i67.tinypic.com/21yk9g.jpg']
 const rhino = ['http://i66.tinypic.com/mvnsb7.jpg']
 const squirrel = ['http://i64.tinypic.com/dzavxd.jpg']
 const turkey = ['http://i63.tinypic.com/1sxxd0.jpg']
+
 const Number_of_Cards = 12;
 
 
