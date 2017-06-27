@@ -1,98 +1,97 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
-import Tablero from './Tablero'
-import construirBaraja from './utils/construirBaraja';
+import Table from './Table'
+import BuildDeck from './utils/BuildDeck';
 
 
-const getEstadoInicial = () => {
-  var baraja = construirBaraja();
+const getInitialState = () => {
+  var Deck = BuildDeck();
   return {
-    baraja,
-    parejaSeleccionada: [],
-    estaComparando: false,
-    numeroDeIntentos: 0 
+    Deck,
+    SelectedCouple: [],
+    isComparing: false,
+    numberAttempts: 0 
   };
 }
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = getEstadoInicial();
+    this.state = getInitialState();
   }
 
   render() {
     return (
       <div className="App">
         <Header
-        numeroDeIntentos={this.state.numeroDeIntentos}
-        resetearPartida={() => this.resetearPartida()}
+        numberAttempts={this.state.numberAttempts}
+        resetGame={() => this.resetGame()}
         ></Header>
-        <Tablero 
-          baraja={this.state.baraja}
-          parejaSeleccionada={this.state.parejaSeleccionada}
-          seleccionarCarta={(carta) => this.seleccionarCarta(carta)}
+        <Table 
+          Deck={this.state.Deck}
+          SelectedCouple = {this.state.SelectedCouple}
+          selectCard={(card) => this.selectCard(card)}
         />
       </div>
     );
   }
 
-  seleccionarCarta(carta) {
+  selectCard(card) {
     if (
-      this.state.estaComparando ||
-      this.state.parejaSeleccionada.indexOf(carta) > -1 ||
-      carta.fueAdivinida
+      this.state.isComparing ||
+      this.state.SelectedCouple.indexOf(card) > -1 ||
+      card.wasGuessed
     ) {
       return;
     }
 
-    const parejaSeleccionada = [...this.state.parejaSeleccionada, carta];
+    const SelectedCouple = [...this.state.SelectedCouple, card];
     this.setState({
-      parejaSeleccionada
+        SelectedCouple
     });
 
-    if (parejaSeleccionada.length == 2) {
-      this.compararPareja(parejaSeleccionada)
+    if (SelectedCouple.length === 2) {
+      this.compareCouple(SelectedCouple)
     }
   }
-    compararPareja(parejaSeleccionada) {
-      this.setState({estaComparando: true});
+    compareCouple(SelectedCouple) {
+      this.setState({isComparing: true});
 
       setTimeout(() => {
-        const [primeraCarta, segundaCarta] = parejaSeleccionada;
-        let baraja = this.state.baraja;
+        const [firstCard, secondCard] = SelectedCouple;
+        let Deck = this.state.Deck;
 
-        if(primeraCarta.icono === segundaCarta.icono) {
-          baraja= baraja.map((carta) => {
-            if(carta.icono !== primeraCarta.icono){
-              return carta
+        if (firstCard.icon === secondCard.icon) {
+            Deck = Deck.map((card) => {
+            if(card.icon !== firstCard.icon){
+              return card
             }
-            return {...carta, fueAdivinada: true};
+            return { ...card, wasGuessed: true};
           });
         }
-        this.verificarSiHayGanador(baraja);
+        this.CheckWinner(Deck);
         this.setState({
-          parejaSeleccionada: [],
-          baraja,
-          estaComparando: false,
-          numeroDeIntentos: this.state.numeroDeIntentos + 1,
+          SelectedCouple: [],
+          Deck,
+          isComparing: false,
+          numberAttempts: this.state.numberAttempts + 1,
         })
       }, 1000)
     }
 
-    verificarSiHayGanador(baraja){
+    CheckWinner(Deck){
       
-      if(
-        baraja.filter((carta) => !carta.fueAdivinada).length === 0
+        if (
+            Deck.filter((card) => !card.wasGuessed).length === 0
       ){
-          alert(`ganaste en ${this.state.numeroDeIntentos} intentos`);
+          alert(`You won in ${this.state.numberAttempts} attempts`);
       }
     }
 
-    resetearPartida(){
+    resetGame(){
       this.setState(
-        getEstadoInicial()
+        getInitialState()
       );
     }
 }

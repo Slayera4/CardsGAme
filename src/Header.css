@@ -7,13 +7,13 @@ header {
     align-content: center;
 }
 
-.titulo {
+.title {
     font-size: 25px;
     padding: 10px;
     color: #fff;
 }
 
-.boton-reiniciar{
+.reset-button{
     position: absolute;
     left: 12px;
     top: 58px;
