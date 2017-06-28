@@ -14,7 +14,7 @@ export default class Card extends Component {
                     <div className="cover"></div>
                     <div className="content">
                     
-                        <img src={this.props.icon} alt={''} />
+                        <img className="image" src={this.props.icon} alt={''} />
                      
                     </div>
 

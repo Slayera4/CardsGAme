@@ -9,12 +9,15 @@ const monkey = ['http://i67.tinypic.com/21yk9g.jpg']
 const rhino = ['http://i66.tinypic.com/mvnsb7.jpg']
 const squirrel = ['http://i64.tinypic.com/dzavxd.jpg']
 const turkey = ['http://i63.tinypic.com/1sxxd0.jpg']
+const bear = ['http://i64.tinypic.com/1230ava.jpg']
+const wolf = ['http://i65.tinypic.com/maj8tv.jpg']
+const tiger = ['http://i64.tinypic.com/334ruj6.jpg']
 
-const Number_of_Cards = 12;
+const Number_of_Cards = 20;
 
 
 export default () => {
-    const AnimalsArray = [bull, crab, kangaroo, monkey, rhino, squirrel, turkey];
+    const AnimalsArray = [bull, crab, kangaroo, monkey, rhino, squirrel, turkey, bear, wolf, tiger];
     let cards = [];
 
 
