@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './Header';
 import Table from './Table'
-import BuildDeck from './utils/BuildDeck';
+import BuildDeck from '../utils/BuildDeck';
 
 
 const getInitialState = () => {
