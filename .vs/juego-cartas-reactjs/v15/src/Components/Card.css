@@ -1,0 +1,33 @@
+
+.card{
+    width: 125px;
+    height: 125px;
+}
+
+.cover{
+    width: 125px;
+    height: 125px;
+    background-image: url('http://i68.tinypic.com/2itndhl.png');
+    border-radius: 15px;
+    border: 2px solid;
+}
+
+.content{
+    width: 125px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 15px;
+}
+
+.ReactFlipCard{
+    width: 100%;
+    height: 100%;
+}
+.image{
+    width: 125px;
+    height: 125px;
+    border-radius: 15px;
+}

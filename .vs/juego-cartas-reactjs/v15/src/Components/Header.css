@@ -1,0 +1,30 @@
+header {
+    height: 50;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.title {
+    font-size: 25px;
+    padding: 10px;
+    color: black;
+}
+
+.reset-button{
+    position: absolute;
+    left: 12px;
+    top: 90px;
+}
+.Animals{
+    width: 29%;
+    position: absolute;
+    margin-left: 28%;
+    margin-bottom: 100px;
+}
+.Animals2{
+    height: 100%;
+    width: 100%;
+    padding-bottom: 170px
+}

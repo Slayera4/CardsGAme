@@ -1,0 +1,21 @@
+{
+  "name": "juego-cartas-reactjs",
+  "version": "0.1.0",
+  "main":"src/index.js",
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "lodash.shuffle": "^4.2.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-flipcard": "^0.2.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
