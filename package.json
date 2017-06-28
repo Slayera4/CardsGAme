@@ -1,9 +1,10 @@
 {
   "name": "juego-cartas-reactjs",
   "version": "0.1.0",
-  "main":"src/index.js",
+  "main": "src/index.js",
   "dependencies": {
     "font-awesome": "^4.7.0",
+    "loadash": "0.0.1",
     "lodash.shuffle": "^4.2.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -11,9 +12,6 @@
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
-  },
-   "engines": {
-    "npm": "5.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
